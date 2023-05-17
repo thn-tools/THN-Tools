@@ -1,0 +1,89 @@
+#!/bin/bash
+clear
+# Define colors
+yellow='\033[33m'
+blue='\033[44m'
+red='\033[31m'
+green='\033[42m'
+reset='\033[0m'
+
+# Define the animation frames as an array of strings with color codes
+frames=(
+"$red$green[*] Configuration ....!$reset"
+"$red$green[*] Configuration ......!$reset"
+"$red$green[*] Configuration ........!$reset"
+"$red$green[*] Configuration ..........!$reset"
+"$red$green[*] Configuration ............!$reset"
+"$red$green[*] Configuration ..............!$reset"
+"$red$green[*] Configuration ................!$reset"
+"$red$green[*] Configuration ..................!$reset"
+"$red$green[*] Configuration ....................!$reset"
+"$red$green[*] Configuration ......................!$reset"
+"$red$green[*] Configuration ........................!$reset"
+"$red$green[*] Configuration ..........................!$reset"
+"$red$green[*] Configuration ............................!$reset"
+"$red$green[*] Configuration ..............................!$reset"
+"$red$green[*] Configuration ................................!$reset"
+)
+
+# Define the total animation duration in seconds
+duration=0.60
+
+# Set the time interval between frames (in seconds)
+interval=$(echo "scale=2; 0.2" | bc)
+
+# Determine the number of frames in the animation
+num_frames=${#frames[@]}
+
+# Calculate the number of times to run the animation loop
+num_loops=$(echo "scale=0; $duration / $interval" | bc)
+
+# Define a function to clear the previous animation frame
+function clear_frame() {
+    tput cuu1          # move cursor up one line
+    tput el            # clear the line
+}
+
+# Start the animation loop
+for (( i=1; i<=$num_loops; i++ ))
+do
+    # Iterate over the animation frames
+    for (( j=0; j<$num_frames; j++ ))
+    do
+        # Print the current frame with colors
+        echo -e "${frames[$j]}"
+
+        # Wait for the specified time interval
+        sleep $interval
+
+        # Clear the previous frame
+        clear_frame
+    done
+done
+
+if [ ! -f thntool ]; then
+    
+    echo -e "\033[32m[THN-TOOLS] Installation Completed Type command \033[0m"
+    echo -e "\033[32m[+] Command : thntool\033[0m"
+else
+    chmod +x *
+    mv thntool /data/data/com.termux/files/usr/bin
+    mv thn.sh /data/data/com.termux/files/usr/bin
+    mv verify.sh /data/data/com.termux/files/usr/bin
+    mv pkgin.sh /data/data/com.termux/files/usr/bin
+    mv toolin.sh /data/data/com.termux/files/usr/bin
+    mv portf.sh /data/data/com.termux/files/usr/bin
+    mv pentt.sh /data/data/com.termux/files/usr/bin
+    mv linuxin.sh /data/data/com.termux/files/usr/bin
+    mv terct.sh /data/data/com.termux/files/usr/bin
+    mv logout.sh /data/data/com.termux/files/usr/bin
+    mv update.sh /data/data/com.termux/files/usr/bin
+    mv fixerror.sh /data/data/com.termux/files/usr/bin
+    #mv  /data/data/com.termux/files/usr/bin
+    #mv  /data/data/com.termux/files/usr/bin
+    echo -e "\033[32m[THN-TOOLS] Installation Completed Type commandecho -eecho -e \033[0m "
+    echo -e "\033[32m[+] Command : thntool\033[0m"
+
+
+    
+fi

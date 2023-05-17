@@ -1,0 +1,59 @@
+#!/bin/bash
+clear
+echo -e '''\033[32m  
+#########################
+# TOOL VERSION : 1.1    #
+# CREATED BY : NINJA 1K #
+# THN-TOOLS             #
+#########################
+\033[0m'''
+echo -e '''\033[33m
+# THIS TOOL IS MADE BY [TH NINJA 1K]
+# DISCLAIMER:
+###############################################
+#  This ethical hacking tool is designed for  #
+#  authorized and legal penetration testing   #
+#   purposes only. [Use at your own risk.]    #
+###############################################
+\033[0m'''
+sleep 3
+echo -e "\033[31m"
+cat << "EOF"
+###############################################
+#                                             #
+#   MMP""MM""YMM `7MMF'  `7MMF'`7MN.   `7MF'  #
+#   P'   MM   `7   MM      MM    MMN.    M    #
+#        MM        MM      MM    M YMb   M    #
+#        MM        MMmmmmmmMM    M  `MN. M    #
+#        MM        MM      MM    M   `MM.M    #
+#        MM        MM      MM    M     YMM    #
+#      .JMML.    .JMML.  .JMML..JML.    YM    #
+#                                             #
+###############################################
+EOF
+echo -e "\033[0m"
+sleep 3
+
+echo -e "\e[1;31m[*] Starting THN-TOOLS...\e[0m"
+echo -e "\e[1;31m[*] Initializing modules...\e[0m"
+
+
+spinner() {
+    while :
+    do
+        for i in / - \\ \|
+        do
+            echo -ne "\r\e[32m[*] Loading THN-TOOLS...\e[0m $i"
+            sleep 0.1
+        done
+    done
+}
+
+spinner &
+SPINNER_PID=$!
+
+sleep 8
+
+kill $SPINNER_PID > /dev/null 2>&1
+
+./verify.sh

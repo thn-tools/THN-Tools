@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if login.txt exists
+if [ ! -f login.txt ]; then
+    
+    python reg.py
+else
+    ./anm 
+fi
+

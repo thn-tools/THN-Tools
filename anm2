@@ -1,0 +1,176 @@
+#!/bin/bash
+clear
+# Define colors
+yellow='\033[33m'
+blue='\033[44m'
+red='\033[31m'
+green='\033[42m'
+reset='\033[0m'
+
+# Define the animation frames as an array of strings with color codes
+frames=(
+"$red$green[*] Starting ....!$reset"
+"$red$green[*] Starting ......!$reset"
+"$red$green[*] Starting ........!$reset"
+"$red$green[*] Starting ..........!$reset"
+"$red$green[*] Starting ............!$reset"
+"$red$green[*] Starting ..............!$reset"
+"$red$green[*] Starting ................!$reset"
+"$red$green[*] Starting ..................!$reset"
+"$red$green[*] Starting ....................!$reset"
+"$red$green[*] Starting ......................!$reset"
+"$red$green[*] Starting ........................!$reset"
+"$red$green[*] Starting ..........................!$reset"
+"$red$green[*] Starting ............................!$reset"
+"$red$green[*] Starting ..............................!$reset"
+"$red$green[*] Starting ................................!$reset"
+)
+
+# Define the total animation duration in seconds
+duration=0.60
+
+# Set the time interval between frames (in seconds)
+interval=$(echo "scale=2; 0.2" | bc)
+
+# Determine the number of frames in the animation
+num_frames=${#frames[@]}
+
+# Calculate the number of times to run the animation loop
+num_loops=$(echo "scale=0; $duration / $interval" | bc)
+
+# Define a function to clear the previous animation frame
+function clear_frame() {
+    tput cuu1          # move cursor up one line
+    tput el            # clear the line
+}
+
+# Start the animation loop
+for (( i=1; i<=$num_loops; i++ ))
+do
+    # Iterate over the animation frames
+    for (( j=0; j<$num_frames; j++ ))
+    do
+        # Print the current frame with colors
+        echo -e "${frames[$j]}"
+
+        # Wait for the specified time interval
+        sleep $interval
+
+        # Clear the previous frame
+        clear_frame
+    done
+done
+
+apt update -y
+apt upgrade -y
+clear
+
+#!/bin/bash
+
+# Define package name
+package_name="python"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+package_name="python2"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+package_name="git"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+package_name="python-pip"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+package_name="python3.9"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+package_name="sqlite"
+r='\033[31m'
+g='\033[32m'
+b='\033[0m'
+y='\033[33m'
+# Check if package is installed
+if ! dpkg -s $package_name >/dev/null 2>&1; then
+    # Install package if not found
+    echo -e  "$r[-] $package_name not found$b"
+    echo -e  "$y[*] Installing $package_name...$b"
+    apt install $package_name -y
+    echo -e  "$g[+] $package_name has been installed.$b"
+else
+    echo -e  "$g[+] $package_name installed$b"
+
+fi
+
+
+
+sleep 5
+./check
